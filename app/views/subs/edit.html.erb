@@ -1,0 +1,15 @@
+<h1>Edit r/<%= @sub.title %> </h1>
+<section>
+  <form action="<%= sub_url(@sub) %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="PATCH">
+
+    <label for="description">Description:</label>
+    <br>
+    <textarea name="sub[description]" rows="8" cols="80"> <%= @sub.description %> </textarea>
+
+    <br>
+    <input type="submit" value="Edit subreddit">
+
+  </form>
+</section>

@@ -1,0 +1,8 @@
+<h1>All Subreddits</h1>
+
+<section>
+  <% @subs.each do |subreddit| %>
+    <%= link_to subreddit.title, "/subs/#{subreddit.id}", method: 'get'  %>
+    <br>
+  <% end %>
+</section>

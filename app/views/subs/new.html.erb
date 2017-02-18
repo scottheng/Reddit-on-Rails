@@ -1,0 +1,17 @@
+<h1>Create a new Subreddit!</h1>
+
+<section>
+  <form action="<%= subs_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="sub[moderator_id]" value="<%= current_user.id %>">
+    <label for="title">Title:</label>
+    <input type="text" name="sub[title]" id="title">
+    <label for="description">Description:</label>
+    <textarea name="sub[description]" rows="8" cols="80"></textarea>
+
+    <input type="submit" value="Create new subreddit">
+
+
+
+  </form>
+</section>

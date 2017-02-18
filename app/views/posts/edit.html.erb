@@ -1,0 +1,27 @@
+<h1>Edit Post: <%= @post.title %>!</h1>
+
+<form action="<%= post_url(@post) %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="_method" value="PATCH">
+  <input type="hidden" name="post[author_id]" value="<%= current_user.id %>">
+  <label for="title">Title:</label>
+  <input type="text" name="post[title]" id="title" value="<%= @post.title %>">
+  <label for="url">URL:</label>
+  <input type="text" name="post[url]" id="url" value="<%= @post.url %>">
+  <label for="sub">Subreddit:</label>
+  <select name="post[sub_id]">
+    <% Sub.all.each do |subreddit| %>
+      <option value="<%= subreddit.id %>" <%= "selected" if subreddit.id == @post.sub_id %>> <%= subreddit.title %> </option>
+    <% end %>
+
+  </select>
+  <br>
+  <label for="content">Content:</label>
+  <br>
+  <textarea name="post[content]" rows="8" cols="80"> <%= @post.content %> </textarea>
+
+  <input type="submit" value="Edit post!">
+
+</form>
+
+<%= button_to "Delete Post", post_url(@post), method: :delete %>

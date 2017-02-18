@@ -1,0 +1,17 @@
+<h1>Welcome to Reddit!</h1>
+<h3>Sign up here</h3>
+
+<section>
+  <form action="<%= users_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="username">Username:</label>
+    <input type="text" name="user[username]" id="username">
+    <label for="email">Email:</label>
+    <input type="text" name="user[email]" id="email">
+    <label for="password">Password:</label>
+    <input type="password" name="user[password]" id="password">
+
+    <br>
+    <input type="submit">
+  </form>
+</section>
